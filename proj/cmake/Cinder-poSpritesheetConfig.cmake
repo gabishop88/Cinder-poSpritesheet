@@ -1,15 +1,14 @@
 if(NOT TARGET Cinder-poSpritesheet)
     # Define ${Cinder-poSpritesheet_PROJECT_ROOT}. ${CMAKE_CURRENT_LIST_DIR} is just the current directory.
-    get_filename_component(Cinder-poSpritesheet_PROJECT_ROOT "${CMAKE_CURRENT_LIST_DIR}/../.." ABSOLUTE)
+    get_filename_component(Cinder-poSpritesheet_PROJECT_ROOT "C:/Users/gabis/Cinder/blocks/Cinder-poSpritesheet" ABSOLUTE)
 
     # Define ${CINDER_PATH} as usual.
-    get_filename_component(CINDER_PATH "${Cinder-poSpritesheet_PROJECT_ROOT}/../.." ABSOLUTE)
+    get_filename_component(CINDER_PATH "C:/Users/gabis/Cinder" ABSOLUTE)
 
     # Make a list of source files and define that to be ${SOURCE_LIST}.
     file(GLOB SOURCE_LIST CONFIGURE_DEPENDS
             "${Cinder-poSpritesheet_PROJECT_ROOT}/src/poSpritesheet/poSpritesheet.cpp"
-            "${Cinder-poSpritesheet_PROJECT_ROOT}/src/poSpritesheet/poSpritesheetAnimation.cpp"
-            )
+            "${Cinder-poSpritesheet_PROJECT_ROOT}/src/poSpritesheet/poSpritesheetAnimation.cpp")
 
     # Create the library!
     add_library(Cinder-poSpritesheet ${SOURCE_LIST})
@@ -36,15 +35,3 @@ if(NOT TARGET Cinder-poSpritesheet)
 
 endif()
 #Sometimes, there are a lot of source files. Instead of declaring each and every file in ${SOURCE_LIST}, you can just use a CMake GLOB pattern for them instead:
-
-file(GLOB SOURCE_LIST CONFIGURE_DEPENDS
-"${Cinder-poSpritesheet_PROJECT_ROOT}/src/**/*.h"
-"${Cinder-poSpritesheet_PROJECT_ROOT}/src/**/*.hpp"
-"${Cinder-poSpritesheet_PROJECT_ROOT}/src/**/*.cc"
-"${Cinder-poSpritesheet_PROJECT_ROOT}/src/**/*.cpp"
-"${Cinder-poSpritesheet_PROJECT_ROOT}/src/**/*.c"
-"${Cinder-poSpritesheet_PROJECT_ROOT}/src/*.h"
-"${Cinder-poSpritesheet_PROJECT_ROOT}/src/*.hpp"
-"${Cinder-Notifications_PROJECT_ROOT}/src/*.cc"
-"${Cinder-Notifications_PROJECT_ROOT}/src/*.cpp"
-"${Cinder-Notifications_PROJECT_ROOT}/src/*.c")
